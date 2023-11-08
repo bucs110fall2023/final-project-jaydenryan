@@ -6,14 +6,13 @@
 
 ## Team Members
 
-<< List team member names >>
-
+Jayden Posner, Ryan Kurtz
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
-
+User will have to click on an icon that pops up before it dissapears,every miss deducts points while every click
+adds points. The user will have to end the game with a certain number of points
 ***    
 
 ## GUI Design
@@ -30,11 +29,11 @@
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Scoring System
+2. Results screen
+3. Custom icons
+4. Multiple progressive rounds
+5. Leaderboard
 
 ### Classes
 
