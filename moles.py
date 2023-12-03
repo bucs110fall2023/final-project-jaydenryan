@@ -1,11 +1,9 @@
-import mole.png
-
 class Moles:
 
-    def __intit__(self,x,y,img_file,up_down):
+    def __intit__(self,x,y,img = "assets/mole.png",up_down):
         self.x = x
         self.y = y
-        self.img_file = img_file
+        self.rect = self.image.load(img)
         self.up_down = up_down
 
     def pop_up(self):
