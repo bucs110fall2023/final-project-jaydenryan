@@ -1,10 +1,19 @@
-class Moles:
+import time
+import pygame
 
-    def __intit__(self,x,y,img = "assets/mole.png",up_down):
-        self.x = x
-        self.y = y
-        self.rect = self.image.load(img)
-        self.up_down = up_down
+class Moles():
+
+    def __init__(self,x,y,img = "assets/mole.png"):
+
+        
+        
+        self.image = pygame.image.load(img)
+        self.rect = self.image.get_rect()
+        self.up_down = True
+        self.startTime = time.time()
+        self.rect.x = x
+        self.rect.y = y
+
 
     def pop_up(self):
         self.up_down = True
@@ -12,5 +21,14 @@ class Moles:
     def pop_down(self):
         self.up_down = False
 
-    def hit(self):
+
+    def update(self):
+
+
+        if(int((time.time()-self.startTime) > 3)):
+            self.up_down = False
+            
+            
+            
+        
         
