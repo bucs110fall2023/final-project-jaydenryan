@@ -11,10 +11,10 @@ class Controller:
   def __init__(self):
     pygame.init()
     
-    self.screen = pygame.display.set_mode()
+    self.screen = pygame.display.set_mode((700,700))
     self.width, self.height = pygame.display.get_window_size()
     self.background = pygame.Surface((self.width, self.height))
-    self.background_color = "white"
+    self.background_color = "lightblue"
     self.background.fill(self.background_color)
 
     self.allMoles = []
@@ -47,7 +47,14 @@ class Controller:
   
 
   def menuloop(self):
-    
+    default_font = pygame.font.Font(None,70)
+
+    menu_text = "MENU"
+    menu_surface = default_font.render(menu_text,True,(0,0,0))
+
+    intro_text = "Press 'SPACE' to begin"
+    intro_surface = default_font.render(intro_text,True,(0,0,0))
+
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
@@ -60,6 +67,8 @@ class Controller:
 
 
     self.screen.blit(self.background, (0, 0))
+    self.screen.blit(menu_surface,(280,50))
+    self.screen.blit(intro_surface,(90,600))
     pygame.display.flip()
 
 
