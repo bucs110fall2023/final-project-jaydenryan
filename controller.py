@@ -11,7 +11,7 @@ class Controller:
   def __init__(self):
     pygame.init()
     
-    self.screen = pygame.display.set_mode()
+    self.screen = pygame.display.set_mode((700,700))
     self.width, self.height = pygame.display.get_window_size()
     self.background = pygame.Surface((self.width, self.height))
     self.background_color = "white"
