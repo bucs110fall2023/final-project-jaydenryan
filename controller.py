@@ -1,5 +1,6 @@
 import pygame
-
+import time
+import random
 
 
 from moles import Moles
@@ -18,13 +19,12 @@ class Controller:
 
     self.allMoles = []
 
-    amountOfMoles = 15
-
     
     newMole = Moles(0,0)
     self.allMoles.append(newMole)
+    self.amountOfMoles = 1
 
-    self.state = "GAME"
+    self.state = "MENU"
 
     self.score = 0
         
@@ -35,10 +35,13 @@ class Controller:
     while True:
         if self.state == "MENU":
             self.menuloop()
+        elif self.state == "EXPLAIN":
+            self.explinationloop()
         elif self.state == "GAME":
             self.gameloop()
         elif self.state == "GAMEOVER":
             self.gameoverloop()
+            
     
         
   
@@ -49,18 +52,42 @@ class Controller:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 self.state = "GAME"
+            elif event.key == pygame.K_e:
+                self.state = "EXPLAIN"
+
                 
       #update data
 
-      #redraw
+
+    self.screen.blit(self.background, (0, 0))
+    pygame.display.flip()
+
+
+
+  def explinationloop(self):
+      
+      for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if (event.key == pygame.K_SPACE) or (event.key == pygame.K_e):
+                self.state = "MENU"
+      #update data
+
+
+      self.screen.blit(self.background, (0, 0))
+      pygame.display.flip()
+
+
+
+
+
       
   def gameloop(self):
       for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            for mole in self.allMoles:
-              if mole.rect.collidepoint(event.pos):
-                score = score + 1
-                mole.updown = False
+
+           if self.allMoles[0].rect.collidepoint(event.pos):
+                self.score = self.score + 1
+                self.allMoles[0].up_down = False
 
       self.allMoles[0].update()
 
@@ -69,18 +96,30 @@ class Controller:
         del self.allMoles[0]
 
       if len(self.allMoles)<1:
-        newMole = Moles(0,0)
+        newMole = Moles(random.randrange(0,100),random.randrange(0,100))
         self.allMoles.append(newMole)
+        self.amountOfMoles = self.amountOfMoles + 1
+        
+      if self.amountOfMoles > 10:
+        self.state = "GAMEOVER"
 
-      self.background.fill(self.background_color)
       self.screen.blit(self.background, (0, 0))
       self.screen.blit(self.allMoles[0].image,self.allMoles[0].rect)
       pygame.display.flip()
       
     
-  #def gameoverloop(self):
-      #event loop
+  def gameoverloop(self):
 
-      #update data
+    print(self.score)
 
-      #redraw
+    self.screen.blit(self.background, (0, 0))
+    pygame.display.flip()
+
+
+
+
+
+
+
+
+      
