@@ -108,6 +108,7 @@ class Controller:
       #Coordinates of hole locations
       cords = ((135,20),(308,20),(477,20),(133,160),(304,160),(474,160),(133,320),(308,320),(477,320))
       rng = random.randint(0,8)
+
       for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
 
@@ -141,8 +142,10 @@ class Controller:
 
     game_over_message = "GAME OVER"
     game_over_surface = default_font.render(game_over_message,True,(0,0,0))
-    self.screen.blit(self.background, (0, 0))
+    final_score_surface = default_font.render(str(self.score),True,(0,0,0))
 
+    self.screen.blit(self.background, (0, 0))
+    self.screen.blit(final_score_surface,(0,300))
     self.screen.blit(game_over_surface, (0,0))
     pygame.display.flip()
 
