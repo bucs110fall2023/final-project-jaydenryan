@@ -74,15 +74,27 @@ class Controller:
 
 
   def explinationloop(self):
+    
       
       for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if (event.key == pygame.K_SPACE) or (event.key == pygame.K_e):
                 self.state = "MENU"
       #update data
+      default_font = pygame.font.Font(None,70)
 
+      explination_text = "placeholder explination"
+      go_back_text = "Press 'SPACE' or 'E' to return" 
+
+      explination_surface = default_font.render(explination_text,True,(0,0,0))
+      go_back_surface = default_font.render(go_back_text,True,(0,0,0))
 
       self.screen.blit(self.background, (0, 0))
+
+      self.screen.blit(go_back_surface, (10,600))
+      self.screen.blit(explination_surface,(0,0))
+      
+      
       pygame.display.flip()
 
 
@@ -119,9 +131,14 @@ class Controller:
     
   def gameoverloop(self):
 
-    print(self.score)
+    default_font = pygame.font.Font(None,70)
 
+
+    game_over_message = "GAME OVER"
+    game_over_surface = default_font.render(game_over_message,True,(0,0,0))
     self.screen.blit(self.background, (0, 0))
+
+    self.screen.blit(game_over_surface, (0,0))
     pygame.display.flip()
 
 
