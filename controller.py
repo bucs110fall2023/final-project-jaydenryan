@@ -17,6 +17,8 @@ class Controller:
     self.background_color = "lightblue"
     self.background.fill(self.background_color)
 
+    self.game_background = pygame.image.load("assets/background.png")
+
     self.allMoles = []
 
     
@@ -103,6 +105,9 @@ class Controller:
 
       
   def gameloop(self):
+      #Coordinates of hole locations
+      cords = ((135,20),(308,20),(477,20),(133,160),(304,160),(474,160),(133,320),(308,320),(477,320))
+      rng = random.randint(0,8)
       for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
 
@@ -117,14 +122,14 @@ class Controller:
         del self.allMoles[0]
 
       if len(self.allMoles)<1:
-        newMole = Moles(random.randrange(0,100),random.randrange(0,100))
+        newMole = Moles(cords[rng][0],cords[rng][1])
         self.allMoles.append(newMole)
         self.amountOfMoles = self.amountOfMoles + 1
         
       if self.amountOfMoles > 10:
         self.state = "GAMEOVER"
 
-      self.screen.blit(self.background, (0, 0))
+      self.screen.blit(self.game_background, (0, 0))
       self.screen.blit(self.allMoles[0].image,self.allMoles[0].rect)
       pygame.display.flip()
       
