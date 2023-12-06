@@ -153,7 +153,7 @@ class Controller:
 
       #Display score
       default_font = pygame.font.Font(None,70)
-      cur_score_surface = default_font.render(str(self.score),True,(0,0,0))
+      cur_score_surface = default_font.render("Score:"+str(self.score),True,(0,0,0))
       self.screen.blit(cur_score_surface,(0,0))
 
       #Mouse as hammer
@@ -165,15 +165,16 @@ class Controller:
   def gameoverloop(self):
 
     default_font = pygame.font.Font(None,70)
-
+    game_over_font = pygame.font.SysFont("krungthep",90,True)
 
     game_over_message = "GAME OVER"
-    game_over_surface = default_font.render(game_over_message,True,(0,0,0))
-    final_score_surface = default_font.render(str(self.score),True,(0,0,0))
+    game_over_surface = game_over_font.render(game_over_message,True,(0,0,0))
+    final_score_surface = default_font.render("Final Score: "+str(self.score),True,(0,0,0))
 
-    self.screen.blit(self.background, (0, 0))
-    self.screen.blit(final_score_surface,(0,300))
-    self.screen.blit(game_over_surface, (0,0))
+    self.screen.blit(self.background, (0,0))
+    self.screen.blit(final_score_surface,(165,300))
+    self.screen.blit(game_over_surface, (85,100))
+
     pygame.display.flip()
 
 
