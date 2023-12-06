@@ -50,12 +50,16 @@ class Controller:
 
   def menuloop(self):
     default_font = pygame.font.Font(None,70)
+    menu_font = pygame.font.SysFont("krungthep",90,True)
 
-    menu_text = "MENU"
-    menu_surface = default_font.render(menu_text,True,(0,0,0))
+    menu_text = "Mole Game"
+    menu_surface = menu_font.render(menu_text,True,(0,0,0))
 
-    intro_text = "Press 'SPACE' to begin"
-    intro_surface = default_font.render(intro_text,True,(0,0,0))
+    explain_text = "Press 'E' for instructions"
+    explain_surface = default_font.render(explain_text,True,(0,0,0))
+
+    start_text = "Press 'SPACE' to begin"
+    start_surface = default_font.render(start_text,True,(0,0,0))
 
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -67,10 +71,11 @@ class Controller:
                 
       #update data
 
-
     self.screen.blit(self.background, (0, 0))
-    self.screen.blit(menu_surface,(280,50))
-    self.screen.blit(intro_surface,(90,600))
+    self.screen.blit(pygame.image.load("assets/mole.png"),(275,190))
+    self.screen.blit(menu_surface,(90,50))
+    self.screen.blit(explain_surface,(63,500))
+    self.screen.blit(start_surface,(90,600))
     pygame.display.flip()
 
 
@@ -83,20 +88,31 @@ class Controller:
             if (event.key == pygame.K_SPACE) or (event.key == pygame.K_e):
                 self.state = "MENU"
       #update data
+      smaller_font = pygame.font.Font(None,45)
       default_font = pygame.font.Font(None,70)
 
-      explination_text = "placeholder explination"
+      #Explaining text strs
+      explination_text1 = "Your goal is to get rid of all the moles!"
+      explination_text2 = "Simply click with the mouse to hit them away."
+      explination_text3 = "Good luck."
+
       go_back_text = "Press 'SPACE' or 'E' to return" 
 
-      explination_surface = default_font.render(explination_text,True,(0,0,0))
+      #Creating surfaces
+      explination_surface1 = smaller_font.render(explination_text1,True,(0,0,0))
+      explination_surface2 = smaller_font.render(explination_text2,True,(0,0,0))
+      explination_surface3 = smaller_font.render(explination_text3,True,(0,0,0))
+
       go_back_surface = default_font.render(go_back_text,True,(0,0,0))
 
+      #Bliting surfaces
       self.screen.blit(self.background, (0, 0))
 
       self.screen.blit(go_back_surface, (10,600))
-      self.screen.blit(explination_surface,(0,0))
-      
-      
+      self.screen.blit(explination_surface1,(70,100))
+      self.screen.blit(explination_surface2,(20,200))
+      self.screen.blit(explination_surface3,(270,300))
+
       pygame.display.flip()
 
 
