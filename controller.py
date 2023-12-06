@@ -105,13 +105,16 @@ class Controller:
 
       
   def gameloop(self):
+      #Change background
+      self.screen.blit(self.game_background, (0, 0))
+
       #Coordinates of hole locations
       cords = ((135,20),(308,20),(477,20),(133,160),(304,160),(474,160),(133,320),(308,320),(477,320))
       rng = random.randint(0,8)
 
+      #Begin loop
       for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-
            if self.allMoles[0].rect.collidepoint(event.pos):
                 self.score = self.score + 1
                 self.allMoles[0].up_down = False
@@ -130,8 +133,16 @@ class Controller:
       if self.amountOfMoles > 10:
         self.state = "GAMEOVER"
 
-      self.screen.blit(self.game_background, (0, 0))
       self.screen.blit(self.allMoles[0].image,self.allMoles[0].rect)
+
+      #Display score
+      default_font = pygame.font.Font(None,70)
+      cur_score_surface = default_font.render(str(self.score),True,(0,0,0))
+      self.screen.blit(cur_score_surface,(0,0))
+
+      #Mouse as hammer
+      self.screen.blit(pygame.image.load("assets/hammer.png"),pygame.mouse.get_pos())
+
       pygame.display.flip()
       
     
