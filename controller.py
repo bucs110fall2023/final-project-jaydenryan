@@ -43,6 +43,12 @@ class Controller:
             self.gameloop()
         elif self.state == "GAMEOVER":
             self.gameoverloop()
+
+    '''
+    Main loop that controls what other loop will be running
+    args: (N/A)
+    return: (N/A)
+    '''
             
     
         
@@ -77,6 +83,12 @@ class Controller:
     self.screen.blit(explain_surface,(63,500))
     self.screen.blit(start_surface,(90,600))
     pygame.display.flip()
+
+    '''
+    Main menu loop, shows different choices to begin
+    args: (N/A)
+    return: (N/A)
+    '''
 
 
 
@@ -114,6 +126,12 @@ class Controller:
       self.screen.blit(explination_surface3,(270,300))
 
       pygame.display.flip()
+
+      '''
+      Runs after user asks for gameplay instructions and displays the instructions
+      args: (N/A)
+      return: (N/A)
+      '''
 
 
 
@@ -160,6 +178,12 @@ class Controller:
       self.screen.blit(pygame.image.load("assets/hammer.png"),pygame.mouse.get_pos())
 
       pygame.display.flip()
+
+      '''
+      Main gameplay loop, creates the moles and detects for mouse clicks on them
+      args: (N/A)
+      return: (N/A)
+      '''
       
     
   def gameoverloop(self):
@@ -176,6 +200,12 @@ class Controller:
     self.screen.blit(game_over_surface, (85,100))
 
     pygame.display.flip()
+
+    '''
+    Appears at the end of the game to display the user their score
+    args: (N/A)
+    return: (N/A)
+    '''
 
 
 
