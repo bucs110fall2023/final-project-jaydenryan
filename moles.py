@@ -24,7 +24,7 @@ class Moles():
 
     def update(self):
        
-        if(int((time.time()-self.startTime) > 2)):
+        if(int((time.time()-self.startTime) > 1)):
             self.up_down = False
             
             

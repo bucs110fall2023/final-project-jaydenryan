@@ -22,7 +22,7 @@ class Controller:
     self.allMoles = []
 
     
-    newMole = Moles(0,0)
+    newMole = Moles(304,160)
     self.allMoles.append(newMole)
     self.amountOfMoles = 1
 
@@ -146,7 +146,7 @@ class Controller:
         self.allMoles.append(newMole)
         self.amountOfMoles = self.amountOfMoles + 1
         
-      if self.amountOfMoles > 10:
+      if self.amountOfMoles > 15:
         self.state = "GAMEOVER"
 
       self.screen.blit(self.allMoles[0].image,self.allMoles[0].rect)
@@ -169,11 +169,17 @@ class Controller:
 
     game_over_message = "GAME OVER"
     game_over_surface = game_over_font.render(game_over_message,True,(0,0,0))
-    final_score_surface = default_font.render("Final Score: "+str(self.score),True,(0,0,0))
 
+    if(self.score>10):
+      final_message = "You Won!"
+    else:
+      final_message = "You Lost"
+    final_score_surface = default_font.render("Final Score: "+str(self.score),True,(0,0,0))
+    final_message_surface = default_font.render(final_message,True,(0,0,0))
     self.screen.blit(self.background, (0,0))
     self.screen.blit(final_score_surface,(165,300))
-    self.screen.blit(game_over_surface, (85,100))
+    self.screen.blit(final_message_surface,(165,200))
+    self.screen.blit(game_over_surface, (165,100))
 
     pygame.display.flip()
 
