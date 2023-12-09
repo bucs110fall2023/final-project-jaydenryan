@@ -39,7 +39,7 @@ class Moles():
             self.up_down = False
 
         '''
-        Updates the mole to go down after
+        Updates the mole to go down after 1 second
         args: (N/A)
         return: (N/A)
         '''

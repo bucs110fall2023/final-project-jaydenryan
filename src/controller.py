@@ -34,6 +34,13 @@ class Controller:
 
     
   def mainloop(self):
+
+      '''
+    Main loop that controls what other loop will be running
+    args: (N/A)
+    return: (N/A)
+    '''
+      
     while True:
         if self.state == "MENU":
             self.menuloop()
@@ -44,17 +51,19 @@ class Controller:
         elif self.state == "GAMEOVER":
             self.gameoverloop()
 
-    '''
-    Main loop that controls what other loop will be running
-    args: (N/A)
-    return: (N/A)
-    '''
+  
             
     
         
-  
 
   def menuloop(self):
+
+    '''
+    Main menu loop, shows different choices to begin
+    args: (N/A)
+    return: (N/A)
+    '''
+    
     default_font = pygame.font.Font(None,70)
     menu_font = pygame.font.SysFont("krungthep",90,True)
 
@@ -84,17 +93,18 @@ class Controller:
     self.screen.blit(start_surface,(90,600))
     pygame.display.flip()
 
-    '''
-    Main menu loop, shows different choices to begin
-    args: (N/A)
-    return: (N/A)
-    '''
+    
 
 
 
   def explinationloop(self):
     
-      
+        '''
+      Runs after user asks for gameplay instructions and displays the instructions
+      args: (N/A)
+      return: (N/A)
+      '''
+        
       for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if (event.key == pygame.K_SPACE) or (event.key == pygame.K_e):
@@ -127,11 +137,7 @@ class Controller:
 
       pygame.display.flip()
 
-      '''
-      Runs after user asks for gameplay instructions and displays the instructions
-      args: (N/A)
-      return: (N/A)
-      '''
+    
 
 
 
@@ -139,6 +145,13 @@ class Controller:
 
       
   def gameloop(self):
+
+    '''
+      Main gameplay loop, creates the moles and detects for mouse clicks on them
+      args: (N/A)
+      return: (N/A)
+      '''
+    
       #Change background
       self.screen.blit(self.game_background, (0, 0))
 
@@ -179,15 +192,17 @@ class Controller:
 
       pygame.display.flip()
 
-      '''
-      Main gameplay loop, creates the moles and detects for mouse clicks on them
-      args: (N/A)
-      return: (N/A)
-      '''
+      
       
     
   def gameoverloop(self):
 
+  '''
+    Appears at the end of the game to display the user their score
+    args: (N/A)
+    return: (N/A)
+    '''
+  
     default_font = pygame.font.Font(None,70)
     game_over_font = pygame.font.SysFont("krungthep",90,True)
 
@@ -207,11 +222,7 @@ class Controller:
 
     pygame.display.flip()
 
-    '''
-    Appears at the end of the game to display the user their score
-    args: (N/A)
-    return: (N/A)
-    '''
+  
 
 
 

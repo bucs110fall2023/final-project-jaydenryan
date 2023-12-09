@@ -34,7 +34,10 @@ User will have to click on moles before they dissapear. For each mole that is cl
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+Moles - used to create a mole object that has x and y coordinates, and has an update method
+
+Controller - A controller that updates the screens and uses the Moles class to decide when a mole sprite should appear
+
 
 ## ATP
 
