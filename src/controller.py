@@ -3,7 +3,7 @@ import time
 import random
 
 
-from moles import Moles
+from src.moles import Moles
 
 
 class Controller:
