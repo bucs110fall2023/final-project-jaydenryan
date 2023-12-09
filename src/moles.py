@@ -17,15 +17,32 @@ class Moles():
 
     def pop_up(self):
         self.up_down = True
+
+        '''
+        Changes the mole from down to up
+        args: (N/A)
+        return: (N/A)
+        '''
     
     def pop_down(self):
         self.up_down = False
+        '''
+        Changes the mole from up to down
+        args: (N/A)
+        return: (N/A)
+        '''
 
 
     def update(self):
        
         if(int((time.time()-self.startTime) > 1)):
             self.up_down = False
+
+        '''
+        Updates the mole to go down after
+        args: (N/A)
+        return: (N/A)
+        '''
             
             
             
