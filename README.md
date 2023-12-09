@@ -20,7 +20,7 @@ User will have to click on moles before they dissapear. For each mole that is cl
 
 ### Final Design
 
-![final gui](assets/finalgui.jpg)
+![final gui](assets/finalGui.jpg)
 
 ## Program Design
 
